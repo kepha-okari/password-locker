@@ -29,12 +29,12 @@ class TestCredential(unittest.TestCase):
         test_credential.save_credential()
 
         self.assertEqual( len(Credential.credential_list), 2)
+
+    def test_generate_password(self):
+        generated_password = self.new_credential.generate_password()
+
+        self.assertEqual( len(generated_password), 8 )
     
-    # def test_generate_password(self):
-    #     generated_password = self.new_credential.generate_password()
-    #
-    #     self.assertEqual( len(generated_password), 8 )
-    #
     # def test_display_credential(self):
     #     # Save the new credential
     #     self.new_credential.save_credential()
