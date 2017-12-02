@@ -29,25 +29,25 @@ class TestCredential(unittest.TestCase):
         test_credential.save_credential()
 
         self.assertEqual( len(Credential.credential_list), 2)
-
-    def test_generate_password(self):
-        generated_password = self.new_credential.generate_password()
-
-        self.assertEqual( len(generated_password), 8 )
-
-    def test_display_credential(self):
-        # Save the new credential
-        self.new_credential.save_credential()
-
-        test_credential = Credential("doe2","Facebook","facebook17")
-
-        test_credential.save_credential()
-
-        test_credential = Credential("doe2","Yahoo","yahoo17")
-
-        test_credential.save_credential()
-
-        self.assertEqual( len(Credential.display_credential("doe2")) , 2 )
+    
+    # def test_generate_password(self):
+    #     generated_password = self.new_credential.generate_password()
+    #
+    #     self.assertEqual( len(generated_password), 8 )
+    #
+    # def test_display_credential(self):
+    #     # Save the new credential
+    #     self.new_credential.save_credential()
+    #
+    #     test_credential = Credential("doe2","Facebook","facebook17")
+    #
+    #     test_credential.save_credential()
+    #
+    #     test_credential = Credential("doe2","Yahoo","yahoo17")
+    #
+    #     test_credential.save_credential()
+    #
+    #     self.assertEqual( len(Credential.display_credential("doe2")) , 2 )
 
     # def test_credential_exist(self):
     #     # Save the new credential
