@@ -19,3 +19,5 @@ from credential import Credential
 
     def display_users(name):
         User.display_user()
+if __name__ == '__main__':
+    main()
