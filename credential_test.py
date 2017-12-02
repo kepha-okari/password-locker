@@ -49,18 +49,18 @@ class TestCredential(unittest.TestCase):
 
         self.assertEqual( len(Credential.display_credential("doe2")) , 2 )
 
-    # def test_credential_exist(self):
-    #     # Save the new credential
-    #     self.new_credential.save_credential()
-    #
-    #     test_credential = Credential("doe2","Facebook","facebook17")
-    #
-    #     test_credential.save_credential()
-    #
-    #     # use contact exist method
-    #     credential_exists = Credential.credential_exist("Facebook")
-    #
-    #     self.assertTrue(credential_exists)
+    def test_credential_exist(self):
+        # Save the new credential
+        self.new_credential.save_credential()
+
+        test_credential = Credential("doe2","Facebook","facebook17")
+
+        test_credential.save_credential()
+
+        # use contact exist method
+        credential_exists = Credential.credential_exist("Facebook")
+
+        self.assertTrue(credential_exists)
 
 
 if __name__ == '__main__':
