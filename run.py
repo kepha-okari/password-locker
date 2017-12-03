@@ -286,7 +286,7 @@ Use these short codes navigate the  system ''')
             Exit Password Locker
             '''
             print("\n")
-            print("<<<<<<<THANKS.   YOU ARE WELCOME TO USE PASS- LOCK AGAIN >>>>>>> ")
+            print("<<<<<<<THANKS.  YOU ARE WELCOME TO USE PASS- LOCK AGAIN >>>>>>> ")
 
             break
 
