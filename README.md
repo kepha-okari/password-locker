@@ -1,9 +1,9 @@
 # Password Locker
-## This is a Python application that allows a user to generate and store passwords for various accounts.,
+####This is a Python application that allows a user to generate and store passwords for various accounts.,
 
 ## By
-* 01/12/2017
 * Kepha Okari
+* 01/12/2017
 
 
 ## Description
@@ -17,8 +17,8 @@ The short codes are:
 * cg - storing a credential with a generated password
 * ex - exit for Password Locker account and also exit the terminal app
 
-## User Stories
-As a user I would like:
+## Ecpectation of the user
+As a user, one would like:
 * To create an account with my details - log in and password
 * Store my existing login credentials
 * Generate a password for a new credential
