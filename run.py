@@ -1,68 +1,146 @@
 #!/usr/bin/env python3.6
 '''
-THE RUN MODULE
-THIS IS THE MAIN MODULE THAT ENABLES THE APPLICATION TO WORK.
-IT ACHIEVES THIS BY CALLING VARIUOS METHODS IN THE TWO MODULES
+This is the file that runs the application(call the methods from credential and user classes)
 Import User Class from User Module and Credential Class from Credential Module
 '''
 from user import User
 from credential import Credential
 
 def create_user(name, password):
+    '''
+    Function to create a user account
+
+    Args:
+        name : the name the user wants for the account
+        password : the password the user want for the account
+    '''
+
     new_user = User(name,password)
 
     return new_user
 
 def save_users(user):
+    '''
+    Function to save a user account
+
+    Args:
+        user : the user account to be saved
+    '''
+
     user.save_user()
 
 def check_existing_users(name):
+    '''
+    Function that checks if a user account name already exists
+
+    Args:
+        name : the user account name
+    '''
+
     return User.user_exist(name)
 
 def user_log_in(name, password):
+    '''
+    Function that allows a user to log into their credential account
+
+    Args:
+        name : the name the user used to create their user account
+        password : the password the user used to create their user account
+    '''
     log_in = User.log_in(name, password)
     if log_in != False:
         return User.log_in(name, password)
 
 def display_users():
+    '''
+    Function that returns all the saved users
+    '''
+
     return User.display_user()
 
 def create_credentail(user_password, name, password):
+    '''
+    Function to create a credential
+
+    Args:
+        user_password : the password for Password Locker
+        name : the name of the account
+        password : the password for the account
+    '''
+
     new_credentail = Credential(user_password,name,password)
+
     return new_credentail
 
 def save_credentials(credential):
+    '''
+    Function to save a credential
+
+    Args:
+        credential : the credential to be saved
+    '''
+
     credential.save_credential()
 
 def check_existing_credentials(name):
+    '''
+    Function that checks if a user credential name already exists
+
+    Args:
+        name : the credential name
+    '''
+
     return Credential.credential_exist(name)
 
 def display_credentials(password):
+    '''
+    Function that returns all the saved credentials
+    '''
+
     return Credential.display_credential(password)
 
 def create_generated_password(name):
+    '''
+    Function that generates a password for the user
+
+    Args:
+        name : the name of the account
+    '''
     password = Credential.generate_password()
+
     return password
 
+#MAIN METHOD TO INVOKE ALL OTHER CLASS METHODS
 def main():
-    print('''WELCOME TO PASSWORD LOCKER!!! \n ''')
+    '''
+    Function running the Password Locker app
+    '''
+    print("\n")
+    print('''       <<< WELCOME TO PASSWORD LOCKER >>> \n
+Use these short codes navigate the  system ''')
 
     while True:
+        '''
+        Loop that is running the entire application
+        '''
 
-        print('''SHORT CODES: \n
-        (cu) - CREATE PASSWORD LOCKER ACCOUNT \n
-        (du) - DISPLAY USERS OF PASSWORD LOCKER \n
-        (lg) - LOG INTO YOUR PASSWORD LOCKER ACOUNT \n
-        (ex) - EXIT PASSWORD LOCKER ACCOUNT''')
+        print('''   Short codes:
+        cu - CREATE A PASSWORD LOCKER ACCOUNT \n
+        du - DISPLAY CURRENT PASSWORD LOCKER USERS \n
+        lg - LOG INTO PASSWORD LOCKER ACCOUNT \n
+        ex - EXIT PASSWORD LOCKER''')
 
         # Get short codes from the user
         short_code = input().lower()
 
         if short_code == 'cu':
+            '''
+            Creating a Password Locker account
+            '''
 
             print("\n")
             print("New Password Locker Account")
-            print("-"*10)
+            print("-"*10)# prints a ten dotted-line
 
             print("User name ...")
             user_name = input()
@@ -78,6 +156,9 @@ def main():
             print("\n")
 
         elif short_code == 'du':
+            '''
+            Display the names of the current users
+            '''
 
             if display_users():
                 print("\n")
@@ -93,7 +174,9 @@ def main():
                 print("\n")
 
         elif short_code == 'lg':
-
+            '''
+            Logs in the user into their Password Locker account
+            '''
             print("\n")
             print("Log into Password Locker Account")
             print("Enter the user name")
@@ -115,17 +198,23 @@ def main():
                 Use these short codes to get around''')
 
                 while True:
-
+                    '''
+                    Loop to run functions after logging in
+                    '''
                     print('''  Short codes:
-                    cc - ADD A CREDENTIAL\n
-                    dc - DISPLAY CREDENTIALS \n
-                    cg - CREATE CREDENTIAL & LET THE SYSTEM GENERATE A PASSWORD FOR YOU \n
-                    ex - EXIT CREDENTIAL''')
+        cc - ADD CREDENTIAL \n
+        dc - DISPLAY CREDENTIALS \n
+        cg - CREATE CREDENTIALS & AUTO-GENERATE PASSWORD BY OUR SYSTEM \n
+        ex - EXIT CREDENTIALS''')
 
                     # Get short code from the user
                     short_code = input().lower()
 
                     if short_code == 'cc':
+                        '''
+                        Creating a Credential
+                        '''
+
                         print("\n")
                         print("New Credential")
                         print("-"*10)
@@ -144,6 +233,10 @@ def main():
                         print("\n")
 
                     elif short_code == 'dc':
+                        '''
+                        Displaying credential name and password
+                        '''
+
                         if display_credentials(user_password):
                             print("\n")
                             print(f"{user_name}\'s credentials")
@@ -160,6 +253,10 @@ def main():
                             print("\n")
 
                     elif short_code == 'cg':
+                        '''
+                        Creating a credential with a generated password
+                        '''
+
                         print("\n")
                         print("New Credential")
                         print("-"*10)
@@ -181,19 +278,22 @@ def main():
                     else:
                         print("\n")
                         print(f'''{short_code} does not compute.
-                        Please use the short codes''')
+    Please use the short codes''')
                         print("\n")
 
         elif short_code == 'ex':
+            '''
+            Exit Password Locker
+            '''
             print("\n")
-            print("Bye .....")
+            print("<<<<<<<THANKS.   YOU ARE WELCOME TO USE PASS- LOCK AGAIN >>>>>>> ")
 
             break
 
         else:
             print("\n")
             print(f'''Come again, what's {short_code}?
-            Please use the short codes''')
+    Please use the short codes''')
             print("\n")
 
 if __name__ == '__main__':
