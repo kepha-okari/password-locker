@@ -203,10 +203,10 @@ def main():
                     Loop to run functions after logging in
                     '''
                     print('''  Short codes:
-        cc - add a credential \n
-        dc - display credentials \n
-        cg - create a credential with a generate password \n
-        ex - exit Credentials''')
+                    cc - add a credential \n
+                    dc - display credentials \n
+                    cg - create a credential with a generate password \n
+                    ex - exit Credentials''')
 
                     # Get short code from the user
                     short_code = input().lower()
