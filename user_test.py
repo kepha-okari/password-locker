@@ -9,9 +9,12 @@ from credential import Credential
 
 
 class TestUser(unittest.TestCase):
-'''
-    main class holding the methods that test those in the User class
-'''
+    '''
+    Test class that defines test cases for the TestUser Class behaviours
+
+    Args:
+        unittest.TestCase : Test case class that helps create test cases
+    '''
 
     def setUp(self):
     '''

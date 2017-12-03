@@ -5,7 +5,10 @@ from credential import Credential
 
 class User:
     '''
-        The main class in this module. has the necessary methods to enable user create account,
+    Test class that defines test cases for the Credential Class behaviours
+
+    Args:
+    unittest.TestCase : Test case class that helps create test cases
     '''
 
     # Empty list of users

@@ -1,7 +1,17 @@
+'''
+import uniittest to create uniittests for credential module
+import Password Locker Module to be tested (Credential in this case)
+'''
 import unittest
 from credential import Credential
 
 class TestCredential(unittest.TestCase):
+    '''
+    Test class that defines test cases for the Credential Class behaviours
+
+    Args:
+        unittest.TestCase : Test case class that helps create test cases
+    '''
     def setUp(self):
         # Create credential object
         self.new_credential = Credential("doe","Yahoo","yahoo17")
@@ -36,6 +46,7 @@ class TestCredential(unittest.TestCase):
         self.assertEqual( len(generated_password), 8 )
 
     def test_display_credential(self):
+
         # Save the new credential
         self.new_credential.save_credential()
 
