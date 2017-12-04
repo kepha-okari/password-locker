@@ -116,19 +116,18 @@ def main():
     Function running the Password Locker app
     '''
     print("\n")
-    print('''       <<< WELCOME TO PASSWORD LOCKER >>> \n
-Use these short codes navigate the  system ''')
+    print('''       <<< WELCOME TO PASSWORD LOCKER >>> \n \n''')
 
     while True:
         '''
         Loop that is running the entire application
         '''
 
-        print('''   Short codes:
-        cu - CREATE A PASSWORD LOCKER ACCOUNT \n
-        du - DISPLAY CURRENT PASSWORD LOCKER USERS \n
-        lg - LOG INTO PASSWORD LOCKER ACCOUNT \n
-        ex - EXIT PASSWORD LOCKER''')
+        print('''        ***Use these short codes to navigate***:\n
+        (cu) - CREATE A PASSWORD LOCKER ACCOUNT \n
+        (du) - DISPLAY CURRENT PASSWORD LOCKER USERS \n
+        (lg)- LOG INTO PASSWORD LOCKER ACCOUNT \n
+        (ex) - EXIT PASSWORD LOCKER''')
 
         # Get short codes from the user
         short_code = input().lower()
@@ -195,17 +194,17 @@ Use these short codes navigate the  system ''')
                 user_log_in(user_name,user_password)
                 print("\n")
                 print(f'''{user_name} welcome to your Credentials\n
-                Use these short codes to get around''')
+                ''')
 
                 while True:
                     '''
                     Loop to run functions after logging in
                     '''
-                    print('''  Short codes:
-        cc - ADD CREDENTIAL \n
-        dc - DISPLAY CREDENTIALS \n
-        cg - CREATE CREDENTIALS & AUTO-GENERATE PASSWORD BY OUR SYSTEM \n
-        ex - EXIT CREDENTIALS''')
+                    print(''' Use these Short codes to navigate:\n\n
+        (cc) - ADD CREDENTIAL \n
+        (dc) - DISPLAY CREDENTIALS \n
+        (cg) - CREATE CREDENTIALS & AUTO-GENERATE PASSWORD BY OUR SYSTEM \n
+        (ex) - EXIT CREDENTIALS''')
 
                     # Get short code from the user
                     short_code = input().lower()
@@ -278,7 +277,7 @@ Use these short codes navigate the  system ''')
                     else:
                         print("\n")
                         print(f'''{short_code} does not compute.
-    Please use the short codes''')
+                        Please use the short codes''')
                         print("\n")
 
         elif short_code == 'ex':
