@@ -292,7 +292,7 @@ Use these short codes navigate the  system ''')
 
         else:
             print("\n")
-            print(f'''Come again, what's {short_code}?
+            print(f'''Opps! {short_code} IS NOT RECOGNIZED AS A VALID COMMAND
     Please use the short codes''')
             print("\n")
 
