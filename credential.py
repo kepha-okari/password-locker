@@ -25,6 +25,12 @@ class Credential:
         '''
         Credential.credential_list.append(self)
 
+    def delete_credential(self):
+        '''
+        method to delete a credential from the credential user_list
+        '''
+        Credential.credential_list.remove(self)
+
     @classmethod
     def generate_password(cls):
         '''
@@ -53,6 +59,20 @@ class Credential:
                 user_credential_list.append(credential)
 
         return user_credential_list
+
+    @classmethod
+    def find_credential(cls, credential_name):
+        '''
+            Method that takes in a name and returns a credential that matches that particular name
+        Args:
+            name: account name
+        Returns:
+             credential neame to delete
+        '''
+
+        for credential in cls.credential_list:
+            if credential.credential_name == credential_name:
+                return credential
 
     @classmethod
     def credential_exist(cls, name):

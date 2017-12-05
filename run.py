@@ -3,6 +3,7 @@
 This is the file that runs the application(call the methods from credential and user classes)
 Import User Class from User Module and Credential Class from Credential Module
 '''
+import random
 from user import User
 from credential import Credential
 
@@ -82,6 +83,14 @@ def save_credentials(credential):
 
     credential.save_credential()
 
+
+def delete_credential(credentials):
+    """
+    Method that deletes credentials
+    """
+    return Credential.delete_credential(credentials)
+
+
 def check_existing_credentials(name):
     '''
     Function that checks if a user credential name already exists
@@ -91,6 +100,10 @@ def check_existing_credentials(name):
     '''
 
     return Credential.credential_exist(name)
+
+def search_credential(account):
+    ''' funtion to find the credential in the list '''
+    return Credential.find_credential(account)
 
 def display_credentials(password):
     '''
@@ -201,10 +214,11 @@ def main():
                     Loop to run functions after logging in
                     '''
                     print(''' Use these Short codes to navigate:\n\n
-        (cc) - ADD CREDENTIAL \n
-        (dc) - DISPLAY CREDENTIALS \n
-        (cg) - CREATE CREDENTIALS & AUTO-GENERATE PASSWORD BY OUR SYSTEM \n
-        (ex) - EXIT CREDENTIALS''')
+                    (cc) - ADD CREDENTIAL \n
+                    (dc) - DISPLAY CREDENTIALS \n
+                    (cg) - CREATE CREDENTIALS & AUTO-GENERATE PASSWORD BY OUR SYSTEM \n
+                    (dl) - DELETE CREDENTIALS \n
+                    (ex) - EXIT CREDENTIALS''')
 
                     # Get short code from the user
                     short_code = input().lower()
@@ -273,6 +287,35 @@ def main():
                         print(f"See you later {user_name}")
                         print("\n")
                         break
+
+                    elif short_code == 'dl':
+                        while True:
+                            print(f"Dear {user_name}, which credential would you like to delete?\n ")
+                            cred_to_delete = input()
+
+                            if check_existing_credentials(cred_to_delete):
+
+                                search_cred = search_credential(cred_to_delete)
+
+                                print(f"ACOUNT: {search_cred.credential_name} \n ")
+                                print("Are You Sure You want to delete? y/n")
+                                confirm = input().lower()
+                                if confirm == 'y':
+                                    #pass
+                                    delete_credential(search_cred)
+                                    print("CREDENTIAL SUCCESSIFULLY DELETED")
+                                    break
+                                elif confirm == 'n':
+                                    continue
+
+                            else:
+                                print(f"Sorry {user_name},You do not have {cred_to_delete} as your credentials" )
+                                break
+
+
+                        print(f"{user_name} you are about to delete somn")
+                    #    pass
+                        #break
 
                     else:
                         print("\n")

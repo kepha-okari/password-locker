@@ -36,7 +36,7 @@ class TestCredential(unittest.TestCase):
 
     def test_save_credential(self):
         '''
-            test case to ensyre credentials are saved
+            test case to ensure credentials are saved
         '''
         # Save the new credential
         self.new_credential.save_credential()
@@ -81,9 +81,23 @@ class TestCredential(unittest.TestCase):
 
         self.assertEqual( len(Credential.display_credential("doe2")) , 2 )
 
+    def test_delete_credential(self):
+        '''test if the delete method works'''
+        #self.new_credential.delete_credential()
+        test_credential = Credential("ken","facebook","1234")#create a credential
+        test_credential.save_credential()#save it
+        test_credential = Credential("kepha","twitter","1234")#create anothercredential so that te list has two
+        test_credential.save_credential()#save it as well
+
+        test_credential.delete_credential()#delete one
+
+        self.assertEqual(len(Credential.credential_list),1)# check if there is one remaining to confirm if the delete method works
+
+
+
     def test_credential_exist(self):
         '''
-            test case to ensure credentials in question exist
+        test case to ensure credentials in question exist
         '''
         # Save the new credential
         self.new_credential.save_credential()
